@@ -15,6 +15,10 @@ const calc = (x, op, y, ...rest) => {
                 return x - y;
             case '*':
                 return x * y;
+            case '^':
+                return x ** y;
+            case '%': 
+                return x % y;
             case '/':
                 if (y == 0) {
                     throw Error('Division by zero')
