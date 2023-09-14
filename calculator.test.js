@@ -64,4 +64,13 @@ describe('Basic Calculator', () => {
     expect(calc(3, '%', 3)).toBe(0);
   })
 
+  // Numbers bigger than 1000 should be ignored
+  test('Numbers bigger than 1000 should be ignored', () => {
+    expect(calc(1, '+', 1001)).toBe(1);
+    expect(calc(2, '-', 1001)).toBe(2);
+    expect(calc(3, '*', 1001)).toBe(0);
+    expect(calc(4, '/', 1001)).toThrow('Division by zero');
+    expect(calc(5, '^', 1001)).toBe(1);
+    expect(calc(6, '%', 1001)).toThrow('mod by zero is undefined')
+  })
 });
