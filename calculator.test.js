@@ -1,7 +1,7 @@
 // calculator.test.js
 const calc = require('./calculator');
 
-describe('Calculator', () => {
+describe('Basic Calculator', () => {
   // Test case: Addition
   it('should return the correct sum of two numbers', () => {
     expect(calc(2, '+', 3)).toBe(5);
@@ -51,4 +51,17 @@ describe('Calculator', () => {
   it('should throw an error for invalid input types', () => {
     expect(() => calc('2', '+', 3)).toThrow('Invalid input type');
   });
+
+  // Test Case: Powers
+  test('it should correctly calculate the power of two numbers', () => {
+    expect(() => calc(2, '^', 3)).toBe(8);
+  })
+
+  // Test Case: Modulus
+  test('it should correctly calculate the modulus of two numbers', () => {
+    expect(() => calc(2, '%', 3)).toBe(2);
+    expect(() => calc(3, '%', 2)).toBe(1);
+    expect(() => calc(3, '%', 3)).toBe(0);
+  })
+  
 });
