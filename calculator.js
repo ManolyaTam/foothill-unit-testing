@@ -3,7 +3,14 @@
  * @returns {number} The result of the calculation.
  */
 
-const calc = (x, op, y, ...rest) => {
+const calc = (first, op, second, ...rest) => {
+    let y = second, x = first;
+    if (second > 1000) {
+        y = 0;
+    }
+    if (first > 1000) {
+        x = 0;
+    }
     if (!rest.length) {
         if (typeof x !== 'number' || typeof y !== 'number') {
             throw Error('Invalid input type');
@@ -17,14 +24,17 @@ const calc = (x, op, y, ...rest) => {
                 return x * y;
             case '^':
                 return x ** y;
-            case '%': 
+            case '%':
+                if (y == 0) {
+                    throw Error('mod by zero is undefined')
+                }
                 return x % y;
+
             case '/':
                 if (y == 0) {
                     throw Error('Division by zero')
-                } else {
-                    return x / y;
                 }
+                return x / y;
             default:
                 throw Error('Invalid operator');
         }
