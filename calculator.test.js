@@ -54,14 +54,14 @@ describe('Basic Calculator', () => {
 
   // Test Case: Powers
   test('it should correctly calculate the power of two numbers', () => {
-    expect(() => calc(2, '^', 3)).toBe(8);
+    expect(calc(2, '^', 3)).toBe(8);
   })
 
   // Test Case: Modulus
   test('it should correctly calculate the modulus of two numbers', () => {
-    expect(() => calc(2, '%', 3)).toBe(2);
-    expect(() => calc(3, '%', 2)).toBe(1);
-    expect(() => calc(3, '%', 3)).toBe(0);
+    expect(calc(2, '%', 3)).toBe(2);
+    expect(calc(3, '%', 2)).toBe(1);
+    expect(calc(3, '%', 3)).toBe(0);
   })
-  
+
 });
